@@ -8406,7 +8406,7 @@
           </div>
         </div>
       </div>
-        
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
       <div id="w-g81yux0n" class="d-none popup-center">
         <div class="popup-wrapper p-absolute full-width full-height">
           <div class="popup-background p-absolute full-width full-height"></div>
@@ -8459,13 +8459,18 @@
         <div class="popup-login-btn">OK</div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
     <script>
       const form = document.getElementById("hl53suyf");
       const url = "https://script.google.com/macros/s/AKfycbwsUeNklYJGulV0RiRtGR8QEuA-5GDJr9_JOMNdUrmpMGrcjIuRjL8A3g38rxb6q5PR/exec"; // your Apps Script URL
 
       form.addEventListener("submit", async function (e) {
         e.preventDefault(); // prevent page reload
+
+          if (!form.checkValidity()) {
+            form.reportValidity(); // hiển thị cảnh báo mặc định của trình duyệt
+            return; // dừng lại, không chạy fetch
+          }
 
         // Collect form data into an object
         const formData = Object.fromEntries(new FormData(form).entries());
